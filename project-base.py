@@ -39,5 +39,3 @@ def run():
 
 
 run()
-
-hello everyone
