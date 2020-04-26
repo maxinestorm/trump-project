@@ -29,14 +29,22 @@ def select_random_pokemon():
 def run():
     player_1 = select_random_pokemon()
 
-    print('Player 1 was given {}'.format(player_1))
+    print('Player 1 was given {}, id: {}, height: {}, weight: {}, \n speed: {}, special-defense: {},'
+          ' special-attack: {}, defense: {}, attack: {}, hp: {}'.format(
+                player_1['name'], player_1['id'], player_1['height'], player_1['weight'], player_1['speed'],
+                player_1['special-defense'], player_1['special-attack'], player_1['defense'], player_1['attack'],
+                player_1['hp']))
     trump_choice = input('Which trump do you want to use? (id, height, weight, speed, special-defense, special-attack, defense, attack, hp)')
 
     if trump_choice not in ['id', 'height', 'weight', 'speed', 'special-defense', 'special-attack', 'defense', 'attack', 'hp']:
         print('You can only choose one of the trumps: id, height, weight, speed, special-defense, special-attack, defense, attack, hp.')
     else:
         player_2 = select_random_pokemon()
-        print('Player 2 was given {}'.format(player_2[]))
+        print('Player 2 was given {}, id: {}, height: {}, weight: {}, \n speed: {}, special-defense: {},'
+              ' special-attack: {}, defense: {}, attack: {}, hp: {}'.format(
+                player_2['name'], player_2['id'], player_2['height'], player_2['weight'], player_2['speed'],
+                player_2['special-defense'], player_2['special-attack'], player_2['defense'], player_2['attack'],
+                player_2['hp']))
 
         player_1_trump_choice = player_1[trump_choice]
         player_2_trump_choice = player_2[trump_choice]
