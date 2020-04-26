@@ -27,18 +27,21 @@ def select_random_pokemon():
 # print(select_random_pokemon()['name'])
 
 def run():
-    player_1 = select_random_pokemon()
+    player_1_score = 0
+    player_2_score = 0
+    for i in range(5):
+        player_1 = select_random_pokemon()
 
-    print('Player 1 was given {}, id: {}, height: {}, weight: {}, \n speed: {}, special-defense: {},'
-          ' special-attack: {}, defense: {}, attack: {}, hp: {}'.format(
-                player_1['name'], player_1['id'], player_1['height'], player_1['weight'], player_1['speed'],
-                player_1['special-defense'], player_1['special-attack'], player_1['defense'], player_1['attack'],
-                player_1['hp']))
-    trump_choice = input('Which trump do you want to use? (id, height, weight, speed, special-defense, special-attack, defense, attack, hp)')
+        print('Player 1 was given {}, id: {}, height: {}, weight: {}, \n speed: {}, special-defense: {},'
+              ' special-attack: {}, defense: {}, attack: {}, hp: {}'.format(
+                    player_1['name'], player_1['id'], player_1['height'], player_1['weight'], player_1['speed'],
+                    player_1['special-defense'], player_1['special-attack'], player_1['defense'], player_1['attack'],
+                    player_1['hp']))
+        trump_choice = input('Which trump do you want to use? (id, height, weight, speed, special-defense, special-attack, defense, attack, hp)')
 
-    if trump_choice not in ['id', 'height', 'weight', 'speed', 'special-defense', 'special-attack', 'defense', 'attack', 'hp']:
-        print('You can only choose one of the trumps: id, height, weight, speed, special-defense, special-attack, defense, attack, hp.')
-    else:
+        while trump_choice not in ['id', 'height', 'weight', 'speed', 'special-defense', 'special-attack', 'defense', 'attack', 'hp']:
+            trump_choice = input('You can only choose one of the trumps: id, height, weight, speed, special-defense, special-attack, defense, attack, hp. \n Try again!')
+
         player_2 = select_random_pokemon()
         print('Player 2 was given {}, id: {}, height: {}, weight: {}, \n speed: {}, special-defense: {},'
               ' special-attack: {}, defense: {}, attack: {}, hp: {}'.format(
@@ -50,11 +53,25 @@ def run():
         player_2_trump_choice = player_2[trump_choice]
 
         if player_1_trump_choice < player_2_trump_choice:
-            print('Player 2 WINS!!!')
+            print('Player 2 wins a round!')
+            player_2_score += 1
         elif player_1_trump_choice > player_2_trump_choice:
-            print('Player 1 WINS!!!')
+            print('Player 1 wins a round!')
+            player_1_score += 1
         else:
             print('No one wins this round')
 
+        print()
+
+    print('Player 1 won {} rounds'.format(player_1_score))
+    print('Player 2 won {} rounds'.format(player_2_score))
+
+    if player_1_score > player_2_score:
+        print('Player 1 won a game!!! CONGRATULATIONS!!!')
+    elif player_1_score < player_2_score:
+        print('Player 2 won a game!!! CONGRATULATIONS!!!')
+    else:
+        print('Draw. Try again!')
 
 run()
+
