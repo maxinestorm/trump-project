@@ -14,7 +14,6 @@ def select_random_pokemon():
         'id': pokemon['id'],
         'height': pokemon['height'],
         'weight': pokemon['weight'],
-        'speed': pokemon['stats']
     }
 
     for stat in pokemon['stats']:
@@ -37,7 +36,7 @@ def run():
         print('You can only choose one of the trumps: id, height, weight, speed, special-defense, special-attack, defense, attack, hp.')
     else:
         player_2 = select_random_pokemon()
-        print('Player 2 was given {}'.format(player_2))
+        print('Player 2 was given {}'.format(player_2[]))
 
         player_1_trump_choice = player_1[trump_choice]
         player_2_trump_choice = player_2[trump_choice]
