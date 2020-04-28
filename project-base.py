@@ -2,6 +2,8 @@ import random
 
 import requests
 
+import csv
+
 
 def select_random_pokemon():
     pokemon_id = random.randint(1, 151)
@@ -24,11 +26,10 @@ def select_random_pokemon():
     return stat_dicts
 
 
-# print(select_random_pokemon()['name'])
-
 def run():
     player_1_score = 0
     player_2_score = 0
+    score = []
     for i in range(5):
         player_1 = select_random_pokemon()
 
@@ -55,9 +56,12 @@ def run():
         if player_1_trump_choice < player_2_trump_choice:
             print('Player 2 wins a round!')
             player_2_score += 1
+            score.append({'winner': 'Player2', 'trump choice': trump_choice, 'score': player_2_trump_choice})
+
         elif player_1_trump_choice > player_2_trump_choice:
             print('Player 1 wins a round!')
             player_1_score += 1
+            score.append({'winner': 'Player1', 'trump choice': trump_choice, 'score': player_1_trump_choice})
         else:
             print('No one wins this round')
 
@@ -72,5 +76,10 @@ def run():
         print('Player 2 won a game!!! CONGRATULATIONS!!!')
     else:
         print('Draw. Try again!')
+
+    with open('trump_scores.csv', 'a+') as csv_file:
+        spreadsheet = csv.DictWriter(csv_file, fieldnames=['winner', 'trump choice', 'score'])
+        spreadsheet.writerows(score)
+
 
 run()
