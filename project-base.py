@@ -1,3 +1,8 @@
+pick_a_game=str(input("Which Game do you want to play,Pokemon or harry potter?"))
+if Pokemon == pokemon_id:
+else == potter_house:
+
+
 import random
 
 import requests
