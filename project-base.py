@@ -8,10 +8,10 @@ def select_random_HP_House():
     potter_house = random.randint()
     url= 'http://hp-api.herokuapp.com/api/characters/'.format(potter_house)
     response = requests.get(url)
-    HP_House = response.json()
-
+    Harry_potter = response.json()
 
 def run():
+
 
 def select_random_pokemon():
     pokemon_id = random.randint(1, 151)
