@@ -40,12 +40,12 @@ def run_pokemon_game():
             player_1['special-defense'], player_1['special-attack'], player_1['defense'], player_1['attack'],
             player_1['hp']))
         trump_choice = input(
-            'Which trump do you want to use? (id, height, weight, speed, special-defense, special-attack, defense, attack, hp)')
+            'Which statistic do you want to use? (id, height, weight, speed, special-defense, special-attack, defense, attack, hp)')
 
         while trump_choice not in ['id', 'height', 'weight', 'speed', 'special-defense', 'special-attack', 'defense',
                                    'attack', 'hp']:
             trump_choice = input(
-                'You can only choose one of the trumps: id, height, weight, speed, special-defense, special-attack, defense, attack, hp. \n Try again!')
+                'You can only choose one of the statistics: id, height, weight, speed, special-defense, special-attack, defense, attack, hp. \n Try again!')
 
         player_2 = select_random_pokemon()
         print('Player 2 was given {}, id: {}, height: {}, weight: {}, \n speed: {}, special-defense: {},'
@@ -75,13 +75,13 @@ def run_pokemon_game():
     print('Player 2 won {} rounds'.format(player_2_score))
 
     if player_1_score > player_2_score:
-        print('Player 1 won a game!!! CONGRATULATIONS!!!')
+        print('Player 1 wins the game!!! CONGRATULATIONS!!!')
     elif player_1_score < player_2_score:
-        print('Player 2 won a game!!! CONGRATULATIONS!!!')
+        print('Player 2 wins the game!!! CONGRATULATIONS!!!')
     else:
         print('Draw. Try again!')
 
-    with open('trump_scores.csv', 'a+') as csv_file:
+    with open('pokemon_trump_scores.csv', 'a+') as csv_file:
         spreadsheet = csv.DictWriter(csv_file, fieldnames=['winner', 'trump choice', 'score'])
         spreadsheet.writerows(score)
 
@@ -181,7 +181,6 @@ def run_harrypotter_game():
         print('\nPlayer 2 wins!!! CONGRATULATIONS computer!!!')
     else:
         print('\nIts a draw - no one wins!')
-
 
 ## this is the end of the harry potter game logic
 
