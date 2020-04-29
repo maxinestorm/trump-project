@@ -10,15 +10,6 @@ def select_random_HP_House():
     response = requests.get(url)
     HP_House = response.json()
 
-    HP_dicts = {
-        'house': HP_House['house'],
-        'name': HP_House['name'],
-        'ancestry': HP_House['ancestry'],
-        'gender': HP_House['gender'],
-        'alive': HP_House['alive'],
-    }
-
-    return HP_dicts
 
 def run():
 
