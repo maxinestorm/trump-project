@@ -5,7 +5,7 @@ import requests
 import csv
 
 
-## this is the start of the pokemon game logic
+# this is the start of the pokemon game logic
 def select_random_pokemon():
     pokemon_id = random.randint(1, 151)
     url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(pokemon_id)
@@ -36,16 +36,18 @@ def run_pokemon_game():
 
         print('Player 1 was given {}, id: {}, height: {}, weight: {}, \n speed: {}, special-defense: {},'
               ' special-attack: {}, defense: {}, attack: {}, hp: {}'.format(
-            player_1['name'], player_1['id'], player_1['height'], player_1['weight'], player_1['speed'],
-            player_1['special-defense'], player_1['special-attack'], player_1['defense'], player_1['attack'],
-            player_1['hp']))
+                player_1['name'], player_1['id'], player_1['height'], player_1['weight'], player_1['speed'],
+                player_1['special-defense'], player_1['special-attack'], player_1['defense'], player_1['attack'],
+                player_1['hp']))
         trump_choice = input(
-            'Which statistic do you want to use? (id, height, weight, speed, special-defense, special-attack, defense, attack, hp)')
+            'Which statistic do you want to use? (id, height, weight, speed, special-defense, special-attack, defense,'
+            ' attack, hp)')
 
         while trump_choice not in ['id', 'height', 'weight', 'speed', 'special-defense', 'special-attack', 'defense',
                                    'attack', 'hp']:
             trump_choice = input(
-                'You can only choose one of the statistics: id, height, weight, speed, special-defense, special-attack, defense, attack, hp. \n Try again!')
+                'You can only choose one of the statistics: id, height, weight, speed, special-defense, special-attack,'
+                ' defense, attack, hp. \n Try again!')
 
         player_2 = select_random_pokemon()
         print('Player 2 was given {}, id: {}, height: {}, weight: {}, \n speed: {}, special-defense: {},'
@@ -86,9 +88,9 @@ def run_pokemon_game():
         spreadsheet.writerows(score)
 
 
-## this is the end of the pokemon game logic
+# this is the end of the pokemon game logic
 
-## this is the start of the harry potter game logic
+# this is the start of the harry potter game logic
 
 def run_harrypotter_game():
     url = "http://hp-api.herokuapp.com/api/characters"
@@ -129,7 +131,8 @@ def run_harrypotter_game():
     print("Player 1 selected: * {} *".format(player_1['name']))
     print("Player 2 was assigned: * {} *".format(player_2['name']))
     print(
-        'Players earn points depending on their characters gender, house and ancestry - lets see what each player scored: \n')
+        'Players earn points depending on their characters gender, house and'
+        ' ancestry - lets see what each player scored: \n')
 
     # player 1
     player_1_score = 0
@@ -191,9 +194,10 @@ def run_harrypotter_game():
         spreadsheet = csv.DictWriter(csv_file, fieldnames=['winner', 'Character', 'score'])
         spreadsheet.writerows(scoreList)
 
-## this is the end of the harry potter game logic
+# this is the end of the harry potter game logic
 
-## this is the logic to select which game the user wnats to play
+# this is the logic to select which game the user whats to play
+
 
 pick_a_game = str(input("Which game do you want to play, Pokemon or Harry Potter? "))
 if pick_a_game == "Pokemon" or pick_a_game == 'pokemon':
