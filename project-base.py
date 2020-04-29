@@ -94,6 +94,7 @@ def run_harrypotter_game():
     url = "http://hp-api.herokuapp.com/api/characters"
     response = requests.get(url)
     hp_characters = response.json()
+    scoreList = []
 
     all_characters = ['Harry Potter', 'Hermione Granger', 'Ron Weasley', 'Draco Malfoy', 'Minerva McGonagall',
                       'Cedric Diggory', 'Cho Chang', 'Severus Snape', 'Rubeus Hagrid', 'Neville Longbottom',
@@ -177,10 +178,18 @@ def run_harrypotter_game():
 
     if player_1_score > player_2_score:
         print('\nPlayer 1 wins!!! CONGRATULATIONS human!!!')
+        scoreList.append({'winner': 'Player1', 'Character': player_1['name'], 'score': player_1_score})
+
     elif player_1_score < player_2_score:
         print('\nPlayer 2 wins!!! CONGRATULATIONS computer!!!')
+        scoreList.append({'winner': 'Player2', 'Character': player_2['name'], 'score': player_2_score})
+
     else:
         print('\nIts a draw - no one wins!')
+
+    with open('HP_trump_scores.csv', 'a+') as csv_file:
+        spreadsheet = csv.DictWriter(csv_file, fieldnames=['winner', 'Character', 'score'])
+        spreadsheet.writerows(scoreList)
 
 ## this is the end of the harry potter game logic
 
