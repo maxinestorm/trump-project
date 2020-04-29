@@ -1,8 +1,3 @@
-pick_a_game=str(input("Which Game do you want to play,Pokemon or harry potter?"))
-if Pokemon == pokemon_id:
-else == potter_house:
-
-
 import random
 
 import requests
@@ -27,7 +22,6 @@ def select_random_HP_House():
 
 def run():
 
-
 def select_random_pokemon():
     pokemon_id = random.randint(1, 151)
     url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(pokemon_id)
@@ -47,7 +41,6 @@ def select_random_pokemon():
         stat_dicts[stat_name] = stat_value
 
     return stat_dicts
-
 
 def run():
     player_1_score = 0
@@ -104,5 +97,10 @@ def run():
         spreadsheet = csv.DictWriter(csv_file, fieldnames=['winner', 'trump choice', 'score'])
         spreadsheet.writerows(score)
 
+pick_a_game=str(input("Which Game do you want to play,Pokemon or harry potter?"))
+if pick_a_game == "pokemon":
+    select_random_pokemon()
+elif pick_a_game == "harry potter":
+    select_random_HP_House()
 
 run()
