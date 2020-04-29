@@ -105,10 +105,10 @@ def run_harrypotter_game():
     # player_1 selection (human)
     print("Which character would you like to select?")
     print(all_characters)
-    player_1_selection = input().title()
-    player_char_dict = next(item for item in hp_characters if item["name"] == player_1_selection)
+    player_1_selection = input().lower()
+    player_char_dict = next(item for item in hp_characters if item["name"].lower() == player_1_selection)
     # player_2 selection (computer)
-    player_2_selection = random.choice(all_characters);
+    player_2_selection = random.choice(all_characters)
     computer_char_dict = next(item for item in hp_characters if item["name"] == player_2_selection)
 
     player_1 = {
